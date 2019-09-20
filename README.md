@@ -1,12 +1,12 @@
-# Progress Bar
+# Products
 
-![npm license](https://img.shields.io/npm/l/@enso-ui/progress-bar.svg) 
-![npm download](https://img.shields.io/npm/dm/@enso-ui/progress-bar.svg) 
-![GitHub top language](https://img.shields.io/github/languages/top/enso-ui/progress-bar.svg) 
-![GitHub issues](https://img.shields.io/github/issues/enso-ui/progress-bar.svg) 
-![npm version](https://img.shields.io/npm/v/@enso-ui/progress-bar.svg) 
+![npm license](https://img.shields.io/npm/l/@enso-ui/products.svg) 
+![npm download](https://img.shields.io/npm/dm/@enso-ui/products.svg) 
+![GitHub top language](https://img.shields.io/github/languages/top/enso-ui/products.svg) 
+![GitHub issues](https://img.shields.io/github/issues/enso-ui/products.svg) 
+![npm version](https://img.shields.io/npm/v/@enso-ui/products.svg) 
 
-Unopinionated Progress Bar
+Products package front-end
 
 ## Usage
 The component can be used outside of the Enso ecosystem.
@@ -21,17 +21,12 @@ Check the full documentation at  [docs.laravel-enso.com](https://docs.laravel-en
 
 Install the package:
 ```
-npm i @enso-ui/progress-bar
+yarn add @enso-ui/products
 ```
 Import the desired component(s):
 ```js
-import ProgressBar from '@enso-ui/progress-bar';
+import ProgressBar from '@enso-ui/products';
 ```
-
-### Exports
-
-`@enso-ui/progress-bar`:
-- `ProgressBar`
 
 
 ## Contributions
