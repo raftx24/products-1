@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { EnsoForm, FormField } from '@enso-ui/bulma';
+import { EnsoForm, FormField } from '@enso-ui/forms/bulma';
 
 export default {
     name: 'Edit',
