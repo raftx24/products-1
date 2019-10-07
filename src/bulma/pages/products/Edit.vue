@@ -15,21 +15,53 @@
                         ref="defaultSupplier"/>
                 </template>
             </enso-form>
+            <accessories>
+                <template slot-scope="{ count }">
+                    <tab keep-alive
+                         id="Comments">
+                        <div class="columns is-centered">
+                            <div class="column is-two-thirds">
+                                <comments :id="id"
+                                    type="product"
+                                    @update="$set(count, 'Comments', $refs.comments.count)"
+                                    ref="comments"/>
+                            </div>
+                        </div>
+                    </tab>
+                    <tab keep-alive
+                         id="Documents">
+                        <div class="columns is-centered">
+                            <div class="column is-two-thirds">
+                                <documents :id="id"
+                                    type="product"
+                                    @update="$set(count, 'Documents', $refs.documents.count)"
+                                    ref="documents"/>
+                            </div>
+                        </div>
+                    </tab>
+                </template>
+            </accessories>
         </div>
     </div>
 </template>
 
 <script>
-import { EnsoForm, FormField } from '@enso-ui/bulma';
+import { EnsoForm, FormField, Accessories, Tab, Documents, Comments } from '@enso-ui/bulma';
 
 export default {
     name: 'Edit',
 
-    components: { EnsoForm, FormField },
+    components: { EnsoForm, FormField, Accessories, Tab, Documents, Comments },
 
     data: () => ({
         selectedSuppliers: { id: [] },
     }),
+
+    computed: {
+        id() {
+            return Number.parseInt(this.$route.params.product, 10);
+        },
+    },
 };
 </script>
 

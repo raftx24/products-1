@@ -6,6 +6,6 @@ export default {
     component: ProductEdit,
     meta: {
         breadcrumb: 'edit',
-        title: 'Edit Products',
+        title: 'Edit',
     },
 };
