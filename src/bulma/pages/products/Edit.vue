@@ -3,16 +3,26 @@
         <div class="column is-three-quarters-desktop is-full-touch">
             <enso-form class="box form-box has-background-light raises-on-hover"
                 ref="form"
-                @loaded="selectedSuppliers.id = $refs.form.field('suppliers').value;">
-                <template v-slot:suppliers="{ field }">
-                    <form-field :field="field"
-                        @input="selectedSuppliers.id = $event"
-                        ref="suppliers"/>
-                </template>
-                <template v-slot:defaultSupplierId="{ field }">
-                    <form-field :field="field"
-                        :params="selectedSuppliers"
-                        ref="defaultSupplier"/>
+                @loaded="selectedSuppliers.id = $refs.form.field('suppliers').value; ready = true">
+                <template v-slot:suppliers="{ sectionBindings }">
+                    <div class="column">
+                        <div class="columns">
+                            <div class="column is-6-tablet">
+                                <form-field :field="$refs.form.field('suppliers')"
+                                            @input="selectedSuppliers.id = $event"
+                                            ref="suppliers"/>
+                            </div>
+                            <div class="column is-6-tablet">
+                                <form-field :field="$refs.form.field('defaultSupplierId')"
+                                            @input="selectedSuppliers.id = $event"
+                                            ref="suppliers"/>
+                            </div>
+                        </div>
+                        <div class="columns"
+                             v-for="supplier in suppliers">
+                            <p>gigi</p>
+                        </div>
+                    </div>
                 </template>
             </enso-form>
             <accessories>
@@ -54,6 +64,7 @@ export default {
     components: { EnsoForm, FormField, Accessories, Tab, Documents, Comments },
 
     data: () => ({
+        ready: false,
         selectedSuppliers: { id: [] },
     }),
 
@@ -61,6 +72,9 @@ export default {
         id() {
             return Number.parseInt(this.$route.params.product, 10);
         },
+        suppliers() {
+            return this.ready && this.$refs.form.field('suppliers').value;
+        }
     },
 };
 </script>
