@@ -1,7 +1,15 @@
 <template>
     <enso-form class="box form-box has-background-light raises-on-hover"
         ref="form"
+        v-on="$listeners"
         @loaded="ready = true">
+
+        <template v-for="field in customFields"
+            v-slot:[field.name]="props">
+            <slot :name="field.name"
+                v-bind="props"/>
+        </template>
+
         <template v-slot:suppliers="{ sectionBindings }">
             <div class="column">
                 <div class="columns">
