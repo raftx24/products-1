@@ -1,35 +1,17 @@
 <template>
     <div class="columns is-centered">
         <div class="column is-three-quarters-desktop is-full-touch">
-            <enso-form class="box form-box has-background-light raises-on-hover">
-                <template v-slot:suppliers="{ field }">
-                    <form-field :field="field"
-                        @input="selectedSuppliers.id = $event"
-                        ref="suppliers"/>
-                </template>
-                <template v-slot:defaultSupplierId="{ field }">
-                    <form-field :field="field"
-                        :params="selectedSuppliers"
-                        ref="defaultSupplier"/>
-                </template>
-            </enso-form>
+            <base-form/>
         </div>
     </div>
 </template>
 
 <script>
-import { EnsoForm, FormField } from '@enso-ui/forms/bulma';
+import BaseForm from './components/BaseForm';
 
 export default {
     name: 'Create',
 
-    components: { EnsoForm, FormField },
-
-    data: () => ({
-        selectedSuppliers: { id: [] },
-    }),
+    components: { BaseForm },
 };
 </script>
-
-<style lang="scss">
-</style>
