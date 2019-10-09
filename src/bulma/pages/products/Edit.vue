@@ -39,17 +39,13 @@ import BaseForm from './components/BaseForm';
 export default {
     name: 'Edit',
 
-    components: { BaseForm, Accessories, Tab, Documents, Comments },
-
-    inject: ['i18n'],
-
-    data: () => ({
-        ready: false,
-    }),
+    components: {
+        BaseForm, Accessories, Tab, Documents, Comments,
+    },
 
     computed: {
         id() {
-            return Number.parseInt(this.$route.params.product, 10);
+            return this.$route.params.product;
         },
     },
 };

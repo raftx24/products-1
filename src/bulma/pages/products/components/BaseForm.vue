@@ -3,13 +3,6 @@
         ref="form"
         v-on="$listeners"
         @loaded="ready = true">
-
-        <template v-for="field in customFields"
-            v-slot:[field.name]="props">
-            <slot :name="field.name"
-                v-bind="props"/>
-        </template>
-
         <template v-slot:suppliers="{ sectionBindings }">
             <div class="column">
                 <div class="columns">
@@ -59,19 +52,15 @@ export default {
         },
         productPartNumber() {
             return this.ready && this.$refs.form.field('part_number').value;
-        }
+        },
     },
 
     methods: {
         prefill() {
             this.suppliers
-                .filter(({pivot}) => !pivot.part_number)
-                .forEach(({pivot}) => pivot.part_number = this.productPartNumber);
-        }
-    }
+                .filter(({ pivot }) => !pivot.part_number)
+                .forEach(({ pivot }) => { pivot.part_number = this.productPartNumber; });
+        },
+    },
 };
 </script>
-
-<style scoped>
-
-</style>
