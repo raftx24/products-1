@@ -33,8 +33,10 @@
 </template>
 
 <script>
-import { Accessories, Tab, Documents, Comments } from '@enso-ui/bulma';
-import BaseForm from './components/BaseForm';
+import {
+    Accessories, Tab, Documents, Comments,
+} from '@enso-ui/accessories/bulma';
+import BaseForm from './components/BaseForm.vue';
 
 export default {
     name: 'Edit',

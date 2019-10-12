@@ -28,8 +28,9 @@
 </template>
 
 <script>
-import { EnsoForm, FormField } from '@enso-ui/bulma';
-import SupplierDetails from './SupplierDetails';
+import { EnsoForm, FormField } from '@enso-ui/forms/bulma';
+import SupplierDetails from './SupplierDetails.vue';
+
 export default {
     name: 'BaseForm',
 
