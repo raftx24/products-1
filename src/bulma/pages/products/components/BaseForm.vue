@@ -2,7 +2,7 @@
     <enso-form class="box form-box has-background-light raises-on-hover"
         ref="form"
         v-on="$listeners"
-        @loaded="form = $event.form">
+        @ready="form = $event.form">
         <template v-slot:suppliers="{ sectionBindings }">
             <div class="column">
                 <div class="columns">
