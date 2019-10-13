@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import BaseForm from './components/BaseForm';
+import BaseForm from './components/BaseForm.vue';
 
 export default {
     name: 'Create',

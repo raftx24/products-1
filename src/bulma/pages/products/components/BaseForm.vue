@@ -2,26 +2,23 @@
     <enso-form class="box form-box has-background-light raises-on-hover"
         ref="form"
         v-on="$listeners"
-        @loaded="ready = true">
+        @loaded="form = $event.form">
         <template v-slot:suppliers="{ sectionBindings }">
             <div class="column">
                 <div class="columns">
                     <div class="column is-6-tablet">
-                        <form-field :field="$refs.form.field('suppliers')"
-                            @input="prefill"
-                            ref="suppliers"/>
+                        <form-field :field="form.field('suppliers')"
+                            @input="prefill"/>
                     </div>
                     <div class="column is-6-tablet">
-                        <form-field :field="$refs.form.field('defaultSupplierId')"
-                            :params="selectedSuppliers"
-                            ref="suppliers"/>
+                        <form-field :field="form.field('defaultSupplierId')"
+                            :params="selectedSuppliers"/>
                     </div>
                 </div>
-                <supplier-details
-                    v-on="$listeners"
-                    :supplier="supplier"
+                <supplier-details v-for="supplier in suppliers"
                     :key="supplier.id"
-                    v-for="supplier in suppliers"/>
+                    :supplier="supplier"
+                    v-on="$listeners"/>
             </div>
         </template>
     </enso-form>
@@ -39,20 +36,20 @@ export default {
     inject: ['i18n'],
 
     data: () => ({
-        ready: false,
+        form: null,
     }),
 
     computed: {
         suppliers() {
-            return this.ready ? this.$refs.form.field('suppliers').value : [];
+            return this.form ? this.form.field('suppliers').value : [];
         },
         selectedSuppliers() {
             return {
                 id: this.suppliers.map(({ id }) => id),
             };
         },
-        productPartNumber() {
-            return this.ready && this.$refs.form.field('part_number').value;
+        partNumber() {
+            return this.ready && this.form.field('part_number').value;
         },
     },
 
@@ -60,7 +57,7 @@ export default {
         prefill() {
             this.suppliers
                 .filter(({ pivot }) => !pivot.part_number)
-                .forEach(({ pivot }) => { pivot.part_number = this.productPartNumber; });
+                .forEach(({ pivot }) => { pivot.part_number = this.partNumber; });
         },
     },
 };

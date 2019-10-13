@@ -20,10 +20,10 @@
             </div>
             <div class="control">
                 <input class="input"
+                    v-model="supplier.pivot.part_number"
                     v-focus
                     v-select-on-focus
-                    @input="$emit('part-number-updated')"
-                    v-model="supplier.pivot.part_number">
+                    @input="$emit('part-number-updated')">
             </div>
         </div>
         <div class="column is-2">
@@ -34,9 +34,9 @@
             </div>
             <div class="control">
                 <input class="input"
+                    v-model="supplier.pivot.acquisition_price"
                     v-select-on-focus
-                    @input="$emit('acquisition-price-updated')"
-                    v-model="supplier.pivot.acquisition_price">
+                    @input="$emit('acquisition-price-updated')">
             </div>
         </div>
         <div class="column is-2">
@@ -71,15 +71,16 @@ import { focus, selectOnFocus } from '@enso-ui/directives';
 
 export default {
     name: 'SupplierDetails',
+
+    directives: { focus, selectOnFocus },
+
+    inject: ['i18n'],
+
     props: {
         supplier: {
             type: Object,
             required: true,
-        }
+        },
     },
-
-    inject: ['i18n'],
-
-    directives: { focus, selectOnFocus }
 };
 </script>
