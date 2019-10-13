@@ -70,7 +70,7 @@
 import { focus, selectOnFocus } from '@enso-ui/directives';
 
 export default {
-    name: 'SupplierDetails',
+    name: 'Supplier',
 
     directives: { focus, selectOnFocus },
 

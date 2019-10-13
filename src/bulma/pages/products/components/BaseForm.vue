@@ -15,7 +15,7 @@
                             :params="selectedSuppliers"/>
                     </div>
                 </div>
-                <supplier-details v-for="supplier in suppliers"
+                <supplier v-for="supplier in suppliers"
                     :key="supplier.id"
                     :supplier="supplier"
                     v-on="$listeners"/>
@@ -26,12 +26,12 @@
 
 <script>
 import { EnsoForm, FormField } from '@enso-ui/forms/bulma';
-import SupplierDetails from './SupplierDetails.vue';
+import Supplier from './Supplier.vue';
 
 export default {
     name: 'BaseForm',
 
-    components: { EnsoForm, FormField, SupplierDetails },
+    components: { EnsoForm, FormField, Supplier },
 
     inject: ['i18n'],
 
