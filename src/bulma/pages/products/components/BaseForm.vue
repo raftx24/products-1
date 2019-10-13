@@ -49,7 +49,7 @@ export default {
             };
         },
         partNumber() {
-            return this.ready && this.form.field('part_number').value;
+            return this.form && this.form.field('part_number').value;
         },
     },
 
