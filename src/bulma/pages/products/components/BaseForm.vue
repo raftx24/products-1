@@ -4,7 +4,7 @@
         v-on="$listeners"
         @ready="form = $event.form">
         <template v-slot:suppliers="{ sectionBindings }">
-            <div class="wrapper">
+            <div class="wrapper is-block">
                 <div class="columns">
                     <div class="column is-6-tablet">
                         <form-field :field="form.field('suppliers')"
