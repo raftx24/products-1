@@ -1,7 +1,5 @@
 <template>
     <enso-form class="box form-box has-background-light raises-on-hover"
-        ref="form"
-        v-on="$listeners"
         @ready="form = $event.form">
         <template v-slot:suppliers="{ sectionBindings }">
             <div class="wrapper is-block">
